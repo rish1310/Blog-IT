@@ -2,9 +2,10 @@ import express from "express";
 import bodyParser from "body-parser";
 import _ from "lodash";
 import mongoose from "mongoose";
+import dotenv from 'dotenv';
+dotenv.config();
 
-mongoose.connect("mongodb+srv://devr1310:dev%40database2001@cluster0.rk41vyy.mongodb.net/blogsDB");
-
+mongoose.connect(process.env.MONGODBURI);
 function formatDate() {  //function for publish date
   const options = { month: 'long', day: 'numeric', year: 'numeric' };
   const today = new Date();
