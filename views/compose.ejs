@@ -1,0 +1,44 @@
+<%- include("partials/header.ejs") %>
+    <div class="post">
+
+        <% if(locals.blog){ %>
+            <h1>Edit Blog</h1>
+            <form action="/edit/<%= encodeURIComponent(blog.title) %>" method="post">
+                <div class="mb-3">
+                    <label class="form-label" for="blogTitle">Title</label>
+                    <input class="form-control" type="text" name="blogTitle" value="<%= blog.title %>" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="blogAuthor">Author</label>
+                    <input class="form-control" type="text" name="blogAuthor" value="<%= blog.author %>" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="blogBody">Blog</label>
+                    <textarea class="form-control" name="blogBody" cols="40" rows="5"
+                        required><%= blog.body %></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" name="button">Save
+                    Changes</button>
+            </form>
+            <% }else{ %>
+                <h1>Compose New Blog</h1>
+                <form action="/compose" method="post">
+                    <div class="mb-3">
+                        <label class="form-label" for="blogTitle">Title</label>
+                        <input class="form-control" type="text" name="blogTitle" required autocomplete="off">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="blogAuthor">Author</label>
+                        <input class="form-control" type="text" name="blogAuthor" required autocomplete="off">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="blogBody">Blog</label>
+                        <textarea class="form-control" name="blogBody" cols="40" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" name="button">Publish</button>
+                </form>
+                <% } %>
+
+    </div>
+
+    <%- include("partials/footer.ejs") %>

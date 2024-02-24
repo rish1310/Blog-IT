@@ -1,0 +1,46 @@
+<%- include("partials/header.ejs") %>
+    <div class="container mt-5">
+        <h1 class="display-4">Welcome to BlogIT</h1>
+        <div>
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative">
+                <div class="col p-4 pb-0 d-flex flex-column position-static">
+
+                    <p class="lead text-secondary">
+                        <%= home %>
+                    </p>
+
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <img class="bd-placeholder-img" width="" height="250" src="/images/home-page.jpg" alt="home-image">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <%blogs.forEach((blog)=> {%>
+        <div class="post p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-tertiary">
+            <div class="col-lg-6 px-0">
+                <h2 class="blog-title">
+                    <%= blog.title %>
+                </h2>
+                <p class="blog-post-meta">
+                    <%= blog.date %> by
+                        <span class="text-secondary fst-italic">
+                            <%= blog.author %>
+                        </span>
+                </p>
+                <p class="lead my-3">
+                    <% if(blog.body.length>100){%>
+                        <%= blog.body.substr(0,100)%> ...
+                            <% }else{ %>
+                                <%=blog.body %>
+                                    <% } %>
+                </p>
+                <p class="lead mb-0"><a href="/blogs/<%= blog.title %>" class="text-body-emphasis fw-bold">Continue
+                        reading ...</a></p>
+            </div>
+        </div>
+
+        <% }); %>
+
+            <%- include("partials/footer.ejs") %>
