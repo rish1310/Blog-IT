@@ -29,11 +29,11 @@ h1 {
 }
 
 .footer-nav li a:hover {
-    color: #1abc9c;
+    color: #221abc;
 }
 
 .navbar-nav li a:hover {
-    color: #1abc9c !important;
+    color: #221abc !important;
 }
 
 .footer-padding {
@@ -46,7 +46,7 @@ h1 {
     bottom: 0;
     width: 100%;
     height: 60px;
-    background-color: #1abc9c;
+    background-color: #221abc;
 }
 
 .footer p {
@@ -65,7 +65,7 @@ h1 {
 .edit-button {
     display: inline-block;
     padding: 10px 15px;
-    background-color: #1abc9c;
+    background-color: #221abc;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
@@ -74,7 +74,7 @@ h1 {
 }
 
 .edit-button:hover {
-    background-color: #14967c;
+    background-color: #19138d;
 }
 
 .delete-form {
@@ -96,4 +96,30 @@ h1 {
 
 .delete-button:hover {
     background-color: #c0392b;
+}
+
+.account-btn {
+    background-color: #221abc;
+    color: #fff;
+    border-color: #221abc;
+}
+
+.account-btn:hover {
+    background-color: #2b21eb;
+    color: #fff;
+    border-color: #2b21eb;
+}
+
+.small-dropdown-menu a {
+    background-color: transparent !important;
+    color: inherit !important;
+    font-size: 0.9rem;
+    /* You can adjust this value to make the dropdown smaller */
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.navbar-nav .dropdown:hover .nav-link {
+    color: #19138d !important;
+    /* Change the text color to your desired color */
 }
