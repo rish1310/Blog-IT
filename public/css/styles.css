@@ -64,7 +64,7 @@ h1 {
 
 .edit-button {
     display: inline-block;
-    padding: 10px 15px;
+    padding: 10px 23px;
     background-color: #221abc;
     color: #fff;
     text-decoration: none;
@@ -98,6 +98,14 @@ h1 {
     background-color: #c0392b;
 }
 
+.edit-button-mob {
+    display: none;
+}
+
+.delete-button-mob {
+    display: none;
+}
+
 .account-btn {
     background-color: #221abc;
     color: #fff;
@@ -122,4 +130,54 @@ h1 {
 .navbar-nav .dropdown:hover .nav-link {
     color: #19138d !important;
     /* Change the text color to your desired color */
+}
+
+@media only screen and (max-width: 768px) {
+    .edit-button {
+        display: none;
+    }
+
+    .delete-button {
+        display: none;
+    }
+
+    .delete-form {
+        display: none;
+    }
+
+    .delete-form-mob {
+        display: inline;
+        margin: 0;
+        padding: 0;
+    }
+
+    .edit-button-mob {
+        display: inline-block;
+        padding: 10px;
+        background-color: #221abc;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        border: 0px;
+    }
+
+    .edit-button-mob:hover {
+        background-color: #19138d;
+    }
+
+    .delete-button-mob {
+        display: inline-block;
+        padding: 10px;
+        background-color: #e74c3c;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        border: 0px;
+    }
+
+    .delete-button-mob:hover {
+        background-color: #c0392b;
+    }
 }
