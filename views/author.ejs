@@ -1,0 +1,44 @@
+<%- include("partials/header.ejs") %>
+
+    <div class="container mt-5">
+        <div class="text-center mb-5">
+            <h1 class="display-4 mb-3">
+                <%= _.startCase(blogs[0].author.name) %>'s Blogs
+            </h1>
+            <p class="lead">Explore all the amazing blogs written by <%= _.startCase(blogs[0].author.name) %>.</p>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <%blogs.slice().reverse().forEach((blog)=> {%>
+            <div class="post p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-tertiary">
+                <div class="col-lg-6 px-0">
+                    <h2 class="blog-title">
+                        <%= blog.title %>
+                    </h2>
+                    <p class="blog-post-meta">
+                        <span class="text-secondary fst-italic">
+                            Posted on <%= blog.date %>
+                        </span>
+                    </p>
+                    <p class="lead my-3">
+                        <% if(blog.body.length>100){%>
+                            <%= blog.body.substr(0,100)%> ...
+                                <% }else{ %>
+                                    <%=blog.body %>
+                                        <% } %>
+                    </p>
+                    <p class="lead mb-0 fw-medium"><a href="/blogs/<%= blog.title %>"
+                            class="link-dark icon-link icon-link-hover link-underline-opacity-0 link-underline-opacity-75-hover">Read
+                            More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                            </svg></a></p>
+                </div>
+            </div>
+
+            <% }); %>
+    </div>
+
+    <%- include("partials/footer.ejs") %>

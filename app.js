@@ -51,20 +51,35 @@ app.use((req, res, next) => {
 });
 
 const usersSchema = new mongoose.Schema({
+  _id: Number,
   firstName: String,
   lastName: String,
   email: String,
   password: String
 });
 
+
+// Middleware to handle automatic incrementation of ID before saving
+usersSchema.pre('save', function (next) {
+  const doc = this;
+  if (doc.isNew) {
+    latestId = Math.max(doc._id || 0, latestId) + 1;
+    doc._id = latestId;
+  }
+  next();
+});
+
 const User = mongoose.model("User", usersSchema);
+
+const users = await User.find({});
+let latestId = users[users.length - 1]._id || 0;
 
 const blogsSchema = ({
   title: String,
   body: String,
   author: {
     id: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.Number,
       ref: "User"
     },
     name: String
@@ -109,6 +124,18 @@ app.get("/blogs/:blogName", async (req, res) => {
     }
   });
   res.render("blog.ejs", { blog: newBlog, blogs: blogs });
+});
+
+app.get("/author/:userID", async (req, res) => {
+  try {
+    const requestedUser = req.params.userID;
+    const blogs = await Blog.find({ 'author.id': requestedUser });
+    console.log(blogs);
+    res.render("author.ejs", { blogs: blogs, _ });
+  } catch (error) {
+    console.log(error);
+  }
+
 });
 
 app.get("/register", async (req, res) => {

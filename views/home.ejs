@@ -25,9 +25,9 @@
                 </h2>
                 <p class="blog-post-meta">
                     <%= blog.date %> by
-                        <span class="text-secondary fst-italic">
+                        <a href="/author/<%= blog.author.id %>" class="text-secondary fst-italic">
                             <%= blog.author.name %>
-                        </span>
+                        </a>
                 </p>
                 <p class="lead my-3">
                     <% if(blog.body.length>100){%>
