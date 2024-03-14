@@ -11,5 +11,8 @@
             "src": "/(.*)",
             "dest": "/"
         }
-    ]
+    ],
+    "static": {
+        "source": "public"
+    }
 }
