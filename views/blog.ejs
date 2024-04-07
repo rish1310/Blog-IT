@@ -1,6 +1,6 @@
 <%- include("partials/header.ejs") %>
 
-    <div class="row g-5">
+    <div class="row g-5 pt-5">
         <div class="col-md-8">
 
 
@@ -9,7 +9,9 @@
             </h1>
             <p class="blog-post-meta">
                 <%= blog.date %> by <span class="text-secondary fst-italic">
-                        <%= blog.author.name %>
+                        <a href="/author/<%= blog.author.id %>" class="text-secondary fst-italic">
+                            <%= blog.author.name %>
+                        </a>
                     </span>
             </p>
             <hr>
