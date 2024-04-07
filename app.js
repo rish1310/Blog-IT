@@ -130,7 +130,7 @@ app.get("/author/:userID", async (req, res) => {
   try {
     const requestedUser = req.params.userID;
     const blogs = await Blog.find({ 'author.id': requestedUser });
-    console.log(blogs);
+    // console.log(blogs);
     res.render("author.ejs", { blogs: blogs, _ });
   } catch (error) {
     console.log(error);
